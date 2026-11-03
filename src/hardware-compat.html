@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hardware-Compat — Rajkumar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="wrap">
+            <a href="home.html" class="brand"><span class="mark">RK</span> Rajkumar</a>
+            <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ed_skills.html">Education & Skills</a></li>
+                <li><a href="projects.html" aria-current="page">Projects</a></li>
+                <li><a href="internships.html">Internships</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" aria-label="Toggle dark mode"><span class="knob">◐</span></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="wrap" style="padding-top: 40px;">
+        <p><a href="projects.html" style="color: var(--accent); text-decoration: none; font-size: 0.9rem;">← All projects</a></p>
+
+        <header class="project-hero" style="margin: 16px 0 32px;">
+            <h1>Hardware-Compat</h1>
+            <p class="tagline">Hardware compatibility checker and driver advisor for Linux.</p>
+            <div class="tech-stack">
+                <span>Python</span><span>Linux</span><span>HTML</span><span>CSS</span>
+            </div>
+            <div class="project-links">
+                <a href="https://github.com/rajkumart5897/Hardware-Compat" target="_blank" rel="noopener">GitHub</a>
+                <a href="https://github.com/rajkumart5897/Hardware-Compat/blob/main/README.md" target="_blank" rel="noopener">Documentation</a>
+            </div>
+        </header>
+
+        <section class="block" style="border-top: none; padding-top: 0;">
+            <h2>Overview</h2>
+            <p><strong>Hardware-Compat</strong> is a Linux hardware compatibility checker that scans PCI and USB devices, detects driver issues, firmware updates, SMART disk health, battery condition, and BIOS information before recommending exact commands to resolve problems.</p>
+            <p>Built entirely with the Python standard library and standard Linux utilities, the project requires no third-party Python packages.</p>
+        </section>
+
+        <section class="block">
+            <h2>Features</h2>
+            <ul style="text-align: left; color: var(--text-muted);">
+                <li>Automatic PCI and USB hardware detection</li>
+                <li>Driver status analysis</li>
+                <li>Wi-Fi and Bluetooth rfkill detection</li>
+                <li>Firmware update detection</li>
+                <li>SMART disk health monitoring</li>
+                <li>Battery health reporting</li>
+                <li>BIOS version detection</li>
+                <li>Interactive driver recommendations</li>
+                <li>Built-in web dashboard</li>
+                <li>JSON export support</li>
+                <li>Distro-aware installation support</li>
+            </ul>
+        </section>
+
+        <section class="block">
+            <h2>Example CLI output</h2>
+            <pre class="terminal"><code>Scanning hardware... found 18 devices.
+
+═══════════════════════════════════════
+HARDWARE COMPATIBILITY REPORT
+═══════════════════════════════════════
+
+Distribution: Ubuntu 24.04 LTS
+Support Tier: FULL
+
+WIFI
+  [OPTIMAL] Intel Wi-Fi 6 AX201
+
+BLUETOOTH
+  [BLOCKED] Qualcomm Atheros QCA9377
+
+Recommendation:
+
+sudo rfkill unblock bluetooth
+sudo systemctl enable bluetooth
+sudo systemctl start bluetooth</code></pre>
+        </section>
+
+        <section class="block">
+            <h2>Technologies</h2>
+            <ul style="text-align: left; color: var(--text-muted);">
+                <li>Python 3 & standard library</li>
+                <li>Linux system utilities</li>
+                <li>lspci, lsusb</li>
+                <li>smartctl, fwupdmgr</li>
+                <li>rfkill, dmidecode, lm-sensors</li>
+            </ul>
+        </section>
+
+        <section class="block">
+            <h2>Architecture</h2>
+            <ul style="text-align: left; color: var(--text-muted);">
+                <li>Hardware scanner</li>
+                <li>Driver recommendation engine</li>
+                <li>System monitor</li>
+                <li>SMART health analyzer</li>
+                <li>Web dashboard</li>
+                <li>Interactive CLI</li>
+            </ul>
+        </section>
+
+        <section class="block">
+            <h2>Supported distributions</h2>
+            <p style="color: var(--text-muted);">Ubuntu, Debian, Linux Mint, Pop!_OS, Elementary OS, Kali Linux, Raspberry Pi OS, Fedora, Arch Linux, Manjaro, openSUSE, RHEL, and CentOS.</p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>© 2026 Rajkumar. All rights reserved.</span>
+            <span>
+                <a href="https://github.com/rajkumart5897" target="_blank" rel="noopener">GitHub</a> ·
+                <a href="contacts.html">LinkedIn</a> ·
+                <a href="contacts.html">Email</a>
+            </span>
+        </div>
+    </footer>
+    <script src="theme.js"></script>
+</body>
+</html>

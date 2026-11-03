@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rajkumar — Portfolio</title>
+    <meta name="description" content="Rajkumar, B.E. Computer Science Engineering student and full-stack developer. Projects, skills and contact.">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 16 16%22><rect width=%2216%22 height=%2216%22 rx=%223%22 fill=%22%233453d6%22/><text x=%228%22 y=%2211.5%22 font-size=%228%22 fill=%22white%22 text-anchor=%22middle%22 font-family=%22monospace%22>R</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="wrap">
+            <a href="home.html" class="brand"><span class="mark">RK</span> Rajkumar</a>
+            <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <ul class="nav-links">
+                <li><a href="home.html" aria-current="page">Home</a></li>
+                <li><a href="ed_skills.html">Education & Skills</a></li>
+                <li><a href="projects.html">Projects</a></li>
+                <li><a href="internships.html">Internships</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" aria-label="Toggle dark mode"><span class="knob">◐</span></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="wrap">
+        <div class="hero">
+            <div>
+                <p class="eyebrow">B.E. Computer Science Engineering · Full-Stack Developer</p>
+                <h1>Hi, I'm Rajkumar.</h1>
+                <p class="role">I build practical software and enjoy solving real-world problems with code.</p>
+                <p>I'm a computer science student focused on full-stack web development, with a growing interest in backend systems and cloud computing. I like picking things apart to understand how they work — Linux internals, networking, and the tools developers use every day.</p>
+                <div class="button-group">
+                    <a href="projects.html" class="btn">View projects</a>
+                    <a href="Rajkumar_resume.pdf" class="btn ghost">📄 Download resume</a>
+                </div>
+            </div>
+            <div class="hero-figure">
+                <img src="Images/Me in suit.jpg" alt="Portrait of Rajkumar">
+            </div>
+        </div>
+
+        <section class="block">
+            <h2>At a glance</h2>
+            <div class="stat-strip">
+                <div class="stat"><span class="num">10</span><span class="label">Projects</span></div>
+                <div class="stat"><span class="num">2</span><span class="label">Internships</span></div>
+                <div class="stat"><span class="num">10+</span><span class="label">Technologies</span></div>
+                <div class="stat"><span class="num">2027</span><span class="label">Expected graduation</span></div>
+            </div>
+        </section>
+
+        <section class="block">
+            <h2>Featured work</h2>
+            <div class="feature-grid">
+                <div class="feature-card wide">
+                    <h3>Hardware-Compat</h3>
+                    <p>A Linux hardware compatibility checker that scans PCI/USB devices, driver status, SMART disk health and battery condition, then recommends exact fix commands — no third-party Python packages required.</p>
+                    <a href="projects.html">Read the writeup →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>ScamDetect</h3>
+                    <p>A full-stack ML system that detects fraudulent job postings in real time with a 5-model ensemble classifier and a rule-based fraud engine.</p>
+                    <a href="https://github.com/rajkumart5897/Scam-Detector" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Personal Task Tracker</h3>
+                    <p>A self-hosted, multi-user task tracker with a Flask + SQLite backend and a vanilla-JS frontend, built with real attention to backend security.</p>
+                    <a href="https://github.com/rajkumart5897/Personal-Task-Tracker" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="block">
+            <h2>About</h2>
+            <p style="max-width: 62ch; color: var(--text-muted);">I'm a computer science student interested in backend development and cloud computing. I enjoy building practical software while continuously learning Linux, networking, and modern web technologies. <a href="about.html" style="color: var(--accent); text-decoration: none;">More about me →</a></p>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>© 2026 Rajkumar. All rights reserved.</span>
+            <span>
+                <a href="https://github.com/rajkumart5897" target="_blank" rel="noopener">GitHub</a> ·
+                <a href="contacts.html">LinkedIn</a> ·
+                <a href="contacts.html">Email</a>
+            </span>
+        </div>
+    </footer>
+    <script src="theme.js"></script>
+</body>
+</html>

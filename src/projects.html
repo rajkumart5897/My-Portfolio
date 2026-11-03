@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Projects — Rajkumar</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;650;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <nav class="site-nav">
+        <div class="wrap">
+            <a href="home.html" class="brand"><span class="mark">RK</span> Rajkumar</a>
+            <button class="nav-burger" aria-label="Toggle menu" aria-expanded="false">☰</button>
+            <ul class="nav-links">
+                <li><a href="home.html">Home</a></li>
+                <li><a href="ed_skills.html">Education & Skills</a></li>
+                <li><a href="projects.html" aria-current="page">Projects</a></li>
+                <li><a href="internships.html">Internships</a></li>
+                <li><a href="about.html">About</a></li>
+                <li><a href="contacts.html">Contact</a></li>
+            </ul>
+            <div class="nav-right">
+                <button class="theme-toggle" aria-label="Toggle dark mode"><span class="knob">◐</span></button>
+            </div>
+        </div>
+    </nav>
+
+    <main class="wrap">
+        <section class="block" style="border-top: none; padding-top: 40px;">
+            <p class="eyebrow" style="font-family: var(--font-mono); color: var(--accent); margin: 0 0 8px;">Projects</p>
+            <h1 style="margin: 0 0 8px;">Things I've built</h1>
+            <p style="color: var(--text-muted); max-width: 58ch;">A mix of systems tooling, ML, and full-stack work, pulled straight from my GitHub. Hardware-Compat has the most complete writeup — the others are summarized below with links to their own READMEs.</p>
+        </section>
+
+        <section class="block">
+            <div class="feature-grid">
+                <div class="feature-card wide">
+                    <h3>Hardware-Compat</h3>
+                    <p>A Linux hardware compatibility checker and driver advisor — scans PCI/USB devices, SMART disk health, battery condition and BIOS info, then recommends exact commands to fix what it finds. Built entirely on the Python standard library.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>Python</span><span>Linux</span><span>HTML</span><span>CSS</span>
+                    </div>
+                    <a href="hardware-compat.html">Read the full writeup →</a>
+                </div>
+                <div class="feature-card wide">
+                    <h3>ScamDetect</h3>
+                    <p>A full-stack ML system that detects fraudulent job postings in real time using a 5-model ensemble classifier plus a rule-based fraud engine, with zero external API dependencies.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>Python</span><span>Flask</span><span>React</span><span>Vite</span><span>SQLite</span>
+                    </div>
+                    <a href="https://github.com/rajkumart5897/Scam-Detector" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Personal Task Tracker</h3>
+                    <p>A small, self-hosted, multi-user task tracker with a Flask backend, SQLite storage and a vanilla-JS frontend — no build step, no ORM, built with real attention to backend security (salted password hashes, per-user data isolation, CSRF protection).</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>Python</span><span>Flask</span><span>SQLite</span><span>JavaScript</span>
+                    </div>
+                    <a href="https://github.com/rajkumart5897/Personal-Task-Tracker" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Document Verifier</h3>
+                    <p>A blockchain-based document verification system — an admin panel uploads documents onto a simple blockchain, and anyone can publicly verify a document against it.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>Node.js</span><span>JavaScript</span><span>HTML/CSS</span>
+                    </div>
+                    <a href="https://github.com/rajkumart5897/Document-Verifier" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Smart Curriculum Activity & Attendance App</h3>
+                    <p>A full-stack MERN app for tracking curriculum activity and attendance, with an Express/MongoDB backend and a React + Tailwind frontend.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>React</span><span>Node.js</span><span>Express</span><span>MongoDB</span><span>Tailwind</span>
+                    </div>
+                    <a href="https://github.com/rajkumart5897/Smart-Curriculum-Activity-Attendance-App" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Swap-Stack</h3>
+                    <p>A three-tier swap hierarchy (zram → fast-drive swapfile → root swapfile) built from systemd services and shell scripts, turning an 8GB Linux dev machine into a stable environment for heavy builds without OOM kills.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>Bash</span><span>systemd</span><span>Linux</span>
+                    </div>
+                    <a href="https://github.com/rajkumart5897/Swap-stack-with-Notification" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Nag Engine</h3>
+                    <p>A recurring reminder app for Android that keeps nagging until a task is marked done, with fixed, escalating and snooze-loop reminder modes, quiet hours, and fully offline local storage.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>React Native</span><span>Expo</span><span>TypeScript</span><span>SQLite</span>
+                    </div>
+                    <a href="https://github.com/rajkumart5897/nag-engine" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>My First Linux App</h3>
+                    <p>A beginner project building a native Linux desktop app in C with GTK, with every step — compiler, Makefile, windowing — explained from the ground up in its own docs.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>C</span><span>GTK</span><span>Make</span>
+                    </div>
+                    <a href="https://github.com/rajkumart5897/my-linux-app" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Tribit Bluetooth Experiments</h3>
+                    <p>Small Python scripts for discovering, connecting to, and logging notifications from a Tribit Bluetooth speaker using the Bleak BLE library.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>Python</span><span>Bleak / BLE</span><span>Linux</span>
+                    </div>
+                    <a href="https://github.com/rajkumart5897/tribit" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Python Developer Reference</h3>
+                    <p>A modular, fast-navigation Python lookup system built for looking things up while coding — functions, methods, stdlib modules, and "I want to build X" use cases, cross-referenced and indexed.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>Python</span><span>Markdown</span><span>Docs</span>
+                    </div>
+                    <a href="https://github.com/rajkumart5897/program-docs" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+                <div class="feature-card">
+                    <h3>Java & JDK 8 Practice (Forked for study.)</h3>
+                    <p>Worked examples and practice code covering core Java (comparators, threads, file handling, collections) and JDK 8 features like lambdas, streams, and the Optional class. Prepared by Manojhd28.</p>
+                    <div class="tech-stack" style="margin-bottom: 14px;">
+                        <span>Java</span><span>JDK 8</span>
+                    </div>
+                    <a href="https://github.com/Manojhd28/jdk8-java" target="_blank" rel="noopener">View on GitHub →</a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <span>© 2026 Rajkumar. All rights reserved.</span>
+            <span>
+                <a href="https://github.com/rajkumart5897" target="_blank" rel="noopener">GitHub</a> ·
+                <a href="contacts.html">LinkedIn</a> ·
+                <a href="contacts.html">Email</a>
+            </span>
+        </div>
+    </footer>
+    <script src="theme.js"></script>
+</body>
+</html>
