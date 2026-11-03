@@ -9,7 +9,7 @@
     // Workers static assets needs real, separate files (index.html,
     // styles.css, arklight.js, assets/*.png) to route between pages,
     // which is exactly what ARK/ is and what an .ark bundle isn't.
-    "directory": "./src",
+    "directory": "/src",
     // ARKlight's Link() already resolves internal links to real,
     // relative "page.html" hrefs at build time (see the ARKlight
     // README, "Internal links are relative, not root-absolute") --
