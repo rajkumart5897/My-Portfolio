@@ -178,7 +178,7 @@ build_about_teaser_section (void)
   teaser = gtk_label_new ("I'm a computer science student interested in backend development "
                            "and cloud computing. I enjoy building practical software while "
                            "continuously learning Linux, networking, and modern web "
-                           "technologies. More about me → (the About page lands in Stage 3.)");
+                           "technologies. More about me →");
   gtk_widget_add_css_class (teaser, "about-teaser");
   gtk_label_set_wrap (GTK_LABEL (teaser), TRUE);
   gtk_label_set_xalign (GTK_LABEL (teaser), 0.0);

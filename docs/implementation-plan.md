@@ -80,7 +80,7 @@ sections as they're reached.
 
 ### Stage 1 — Home page
 
-Implements the GTK equivalent of `web-src/Index.html`'s `<main>` content:
+Implements the GTK equivalent of `web-src/index.html`'s `<main>` content:
 
 - Hero: eyebrow line, heading, role line, intro paragraph, portrait image,
   and a button row ("View projects" / "Download resume" — inert in this
@@ -150,7 +150,7 @@ counterpart's `<main>` content:
   empty state as `web-src/internships.html`; the two internships' content
   hasn't been written on either build yet.
 - **`portfolio-about-page.c`** — a hero (reusing the same `portrait.jpg`
-  resource as the home page — `web-src`'s `Index.html` and `about.html` use
+  resource as the home page — `web-src`'s `index.html` and `about.html` use
   the same photo), a "Journey" timeline, and an "Interests" tag row.
 - **`portfolio-contact-page.c`** — GitHub/LinkedIn/email rows as
   `GtkLinkButton`s, same placeholder values as `web-src/contacts.html` (see

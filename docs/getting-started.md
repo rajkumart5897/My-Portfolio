@@ -95,4 +95,4 @@ cd web-src
 python3 -m http.server 8000
 ```
 
-Then visit `http://localhost:8000/Index.html`. It's a separate, independent build from the GTK app — neither one depends on the other.
+Then visit `http://localhost:8000/index.html`. It's a separate, independent build from the GTK app — neither one depends on the other.

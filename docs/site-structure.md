@@ -42,7 +42,7 @@ my-portfolio/
 │       └── portfolio.gresource.xml # GResource manifest bundling style.css + portrait.jpg into the binary
 └── web-src/                        # The static HTML/CSS/JS site
     ├── README.md                   # Points back here — this doc is the source of truth
-    ├── Index.html, about.html, ed_skills.html, hardware-compat.html,
+    ├── index.html, about.html, ed_skills.html, hardware-compat.html,
     │   internships.html, projects.html, contacts.html
     ├── styles.css, theme.js
     └── Images/
