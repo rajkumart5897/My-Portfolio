@@ -16,23 +16,31 @@ my-portfolio/
 │       └── hardware-compat.md      # Standalone writeup for the Hardware-Compat project
 ├── Public/
 │   └── Images/                     # Public-facing copies of site images
-├── linux-src/                      # The GTK4 + C desktop app
+├── meson.build                      # Root build definition (subdirs into linux-src/)
+├── linux-src/                      # The GTK4 + C desktop app — see implementation-plan.md for the stage order
 │   ├── README.md                   # Points back here — this doc is the source of truth
-│   ├── main.c                      # (planned) Entry point — GtkApplication setup and activation
-│   ├── app-window.c / .h           # (planned) Main GtkApplicationWindow: header bar, sidebar nav, content stack
-│   ├── nav.c / .h                  # (planned) Sidebar/nav model shared by every page
-│   ├── theme.c / .h                # (planned) Light/dark toggle (GtkSettings + CSS classes)
-│   ├── pages/                      # (planned) One .c/.h pair per page, each builds a GtkWidget subtree
-│   │   ├── home.c / .h
-│   │   ├── about.c / .h
-│   │   ├── ed-skills.c / .h
-│   │   ├── projects.c / .h
-│   │   ├── internships.c / .h
-│   │   └── contact.c / .h
-│   └── resources/                 # (planned) GTK CSS + GResource bundle
-│       ├── style.css               # GTK CSS for the whole app (see theming.md)
-│       ├── portfolio.gresource.xml # GResource manifest bundling style.css + icons into the binary
-│       └── icons/                  # App icon + any symbolic icons
+│   ├── meson.build                 # linux-src build definition: sources, GResource compilation
+│   ├── main.c                      # Entry point — builds and runs PortfolioApplication
+│   ├── core/
+│   │   ├── portfolio-application.c / .h   # PortfolioApplication : GtkApplication
+│   │   └── portfolio-window.c / .h        # PortfolioWindow : GtkApplicationWindow — composition root
+│   ├── ui/
+│   │   ├── pages/                  # One GObject widget type per page
+│   │   │   ├── portfolio-home-page.c / .h
+│   │   │   ├── about.c / .h        # (planned, Stage 3)
+│   │   │   ├── ed-skills.c / .h    # (planned, Stage 3)
+│   │   │   ├── projects.c / .h     # (planned, Stage 3)
+│   │   │   ├── internships.c / .h  # (planned, Stage 3)
+│   │   │   └── contact.c / .h      # (planned, Stage 3)
+│   │   └── widgets/                 # Small reusable widgets, each its own module
+│   │       ├── portfolio-stat-strip.c / .h
+│   │       └── portfolio-feature-card.c / .h
+│   ├── nav.c / .h                  # (planned, Stage 2) Sidebar/nav model shared by every page
+│   ├── theme.c / .h                # (planned, Stage 4) Light/dark toggle (GtkSettings + CSS classes)
+│   └── resources/                  # GTK CSS + GResource bundle
+│       ├── style.css               # GTK CSS for the app so far (see theming.md)
+│       ├── portrait.jpg            # Home page hero portrait
+│       └── portfolio.gresource.xml # GResource manifest bundling style.css + portrait.jpg into the binary
 └── web-src/                        # The static HTML/CSS/JS site
     ├── README.md                   # Points back here — this doc is the source of truth
     ├── Index.html, about.html, ed_skills.html, hardware-compat.html,
@@ -41,7 +49,7 @@ my-portfolio/
     └── Images/
 ```
 
-As with the structure of the sources themselves, this document describes *where things live*, not *how the C works* — reading `linux-src/` directly, alongside the GTK docs linked from [getting-started.md](getting-started.md), is the intended way to learn that part.
+This document describes *where things live*, not *how the C works*. For the module boundaries and the order modules are being built in, see [implementation-plan.md](implementation-plan.md). For the GTK APIs themselves, see the references linked from [getting-started.md](getting-started.md).
 
 ## Pages
 

@@ -1,0 +1,167 @@
+/* ---------------------------------------------------------
+   My Portfolio — GTK app stylesheet
+   Stage 1: home page only, one fixed (light) palette.
+   Color tokens mirror web-src/styles.css's :root values —
+   GTK CSS has no custom properties, so @define-color stands
+   in for the CSS variables there. See docs/theming.md.
+--------------------------------------------------------- */
+
+@define-color window_bg_color #f7f7f5;
+@define-color surface_color #ffffff;
+@define-color surface_alt_color #f0f1f4;
+@define-color border_color #e3e4e8;
+@define-color text_color #15171c;
+@define-color text_muted_color #5a5f6b;
+@define-color accent_color #3453d6;
+@define-color accent_contrast_color #ffffff;
+@define-color accent_soft_color #e9edff;
+
+window.portfolio-window {
+  background-color: @window_bg_color;
+}
+
+.portfolio-scroller {
+  background-color: @window_bg_color;
+}
+
+/* ---------------- Hero ---------------- */
+
+.hero {
+  padding: 36px 32px 16px;
+}
+
+.hero-eyebrow {
+  color: @accent_color;
+  font-family: monospace;
+  font-size: 0.85rem;
+  margin-bottom: 4px;
+}
+
+.hero-heading {
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+.hero-role {
+  color: @text_muted_color;
+  font-size: 1.05rem;
+}
+
+.hero-body {
+  color: @text_muted_color;
+}
+
+.hero-portrait {
+  border: 1px solid @border_color;
+  border-radius: 14px;
+  background-color: @surface_color;
+  padding: 8px;
+}
+
+.hero-portrait picture {
+  border-radius: 8px;
+}
+
+.btn {
+  padding: 8px 18px;
+  border-radius: 8px;
+  font-weight: 600;
+}
+
+.btn.suggested {
+  background-color: @accent_color;
+  color: @accent_contrast_color;
+}
+
+.btn.suggested:hover {
+  background-color: shade(@accent_color, 1.08);
+}
+
+.btn.ghost {
+  background-color: transparent;
+  border: 1px solid @border_color;
+  color: @text_color;
+}
+
+.btn.ghost:hover {
+  background-color: @surface_alt_color;
+}
+
+/* ---------------- Section scaffolding ---------------- */
+
+.page-section {
+  padding: 28px 32px;
+  border-top: 1px solid @border_color;
+}
+
+.section-heading {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 14px;
+}
+
+/* ---------------- Stat strip ---------------- */
+
+.stat-strip {
+  border: 1px solid @border_color;
+  border-radius: 10px;
+  background-color: @surface_color;
+}
+
+.stat-strip-entry {
+  padding: 16px 18px;
+}
+
+.stat-strip-entry:not(:first-child) {
+  border-left: 1px solid @border_color;
+}
+
+.stat-strip-number {
+  font-family: monospace;
+  font-size: 1.3rem;
+  font-weight: 700;
+  color: @accent_color;
+}
+
+.stat-strip-label {
+  color: @text_muted_color;
+  font-size: 0.9rem;
+}
+
+/* ---------------- Feature cards ---------------- */
+
+.feature-grid {
+  /* column/row sizing handled in C (portfolio-home-page.c); this just
+     styles each card once it's placed. */
+}
+
+.feature-card {
+  padding: 18px;
+  border: 1px solid @border_color;
+  border-radius: 10px;
+  background-color: @surface_color;
+}
+
+.feature-card-title {
+  font-size: 1.05rem;
+  font-weight: 700;
+}
+
+.feature-card-body {
+  color: @text_muted_color;
+}
+
+.feature-card-link {
+  color: @accent_color;
+  font-size: 0.9rem;
+}
+
+.feature-card-link:hover {
+  text-decoration: underline;
+}
+
+/* ---------------- About teaser ---------------- */
+
+.about-teaser {
+  color: @text_muted_color;
+}

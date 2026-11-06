@@ -4,7 +4,7 @@ A personal portfolio application for **Rajkumar**, a B.E. Computer Science Engin
 
 The portfolio is built two ways: a static HTML/CSS/JS site in [`web-src/`](web-src/), and a **native Linux desktop app written in C, using GTK4 for the UI and GTK's CSS support for styling**, in [`linux-src/`](linux-src/). Same content (home, education & skills, projects, internships, about, contact, light/dark theme) — two separate builds.
 
-This README intentionally stays high-level. It does not explain the GTK app's own C source — the point of building it in GTK is to have real, readable GTK code to study, so the source is left to speak for itself. What *is* documented thoroughly, in [`docs/`](docs/), is everything about GTK and the build/dev environment you need to read that code comfortably: how to install GTK4 and the toolchain, how the project is laid out, how GTK CSS theming works, and where to go in the official GTK docs for anything not covered here.
+This README stays high-level. For installing GTK4 and the toolchain, how the project is laid out, and how GTK CSS theming works, see [`docs/`](docs/).
 
 ## Quick start
 

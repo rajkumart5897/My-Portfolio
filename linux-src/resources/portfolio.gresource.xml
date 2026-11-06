@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<gresources>
+  <gresource prefix="/dev/portfolio">
+    <file>style.css</file>
+    <file alias="portrait.jpg">portrait.jpg</file>
+  </gresource>
+</gresources>

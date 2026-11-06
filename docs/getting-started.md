@@ -1,6 +1,6 @@
 # Getting Started
 
-My Portfolio has two builds: a static HTML/CSS/JS site in `web-src/`, and a native **GTK4** application written in **C**, styled with GTK's own CSS support, in `linux-src/`. This page covers both, going deep on GTK itself since that's the more involved of the two to set up and what you'll want on hand while reading the source. It does not explain the GTK app's own `.c`/`.h` files — see the note in [`docs/README.md`](README.md) for why.
+My Portfolio has two builds: a static HTML/CSS/JS site in `web-src/`, and a native **GTK4** application written in **C**, styled with GTK's own CSS support, in `linux-src/`. This page covers both, going deep on GTK itself since that's the more involved of the two to set up. For the module layout and how the GTK app is being built out, see [`site-structure.md`](site-structure.md) and [`implementation-plan.md`](implementation-plan.md).
 
 ## 1. Install dependencies
 
