@@ -1,6 +1,6 @@
 # Getting Started
 
-My Portfolio is a native **GTK4** application written in **C**, styled with GTK's own CSS support. This page covers everything needed to get it built, running, and open for study on Linux. It does not explain the app's own `.c`/`.h` files — see the note in [`docs/README.md`](README.md) for why — but it goes deep on GTK itself, since that's what you'll want on hand while reading the source.
+My Portfolio has two builds: a static HTML/CSS/JS site in `web-src/`, and a native **GTK4** application written in **C**, styled with GTK's own CSS support, in `linux-src/`. This page covers both, going deep on GTK itself since that's the more involved of the two to set up and what you'll want on hand while reading the source. It does not explain the GTK app's own `.c`/`.h` files — see the note in [`docs/README.md`](README.md) for why.
 
 ## 1. Install dependencies
 
@@ -84,15 +84,15 @@ See [site-structure.md](site-structure.md) for how the app's sources and resourc
 
 ## Deployment note
 
-The app is a native binary, not something you host as static files — the old "point a static host at `web-src/`" deployment path no longer applies. `ninja -C build install` (with an appropriate `--prefix` set at `meson setup` time) installs it like any other Meson/GTK project; packaging as a Flatpak is the usual way to distribute a GTK app to end users, see [docs.flatpak.org](https://docs.flatpak.org/) if that's a direction you want to take it.
+The GTK app is a native binary, not something you host as static files — deploying it means installing it (`ninja -C build install`, with an appropriate `--prefix` set at `meson setup` time) like any other Meson/GTK project, or packaging it as a Flatpak, the usual way to distribute a GTK app to end users; see [docs.flatpak.org](https://docs.flatpak.org/) if that's a direction you want to take it. The HTML site in `web-src/` deploys the normal static-hosting way instead — see the next section for running it, and point a static host (GitHub Pages, Netlify, etc.) at `web-src/` for deployment.
 
-## Running the legacy web prototype
+## Running the HTML site
 
-The original static site is kept in [`web-src/`](../web-src/) and still runs on its own, with no GTK dependencies:
+The static site is in [`web-src/`](../web-src/) and runs on its own, with no GTK dependencies:
 
 ```bash
 cd web-src
 python3 -m http.server 8000
 ```
 
-Then visit `http://localhost:8000/Index.html`. It isn't part of the GTK build and won't be touched further as `linux-src/` takes over.
+Then visit `http://localhost:8000/Index.html`. It's a separate, independent build from the GTK app — neither one depends on the other.

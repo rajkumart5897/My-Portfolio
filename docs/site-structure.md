@@ -1,6 +1,6 @@
 # Application Structure
 
-The repo is split into the new GTK4/C app and the old static prototype, side by side: `linux-src/` is where the rewrite lives, `web-src/` is the original HTML/CSS/JS version kept for reference. The pieces under `linux-src/` marked *(planned)* below are what the C rewrite is adding; the build system and sources go in as the rewrite progresses.
+The repo holds two independent builds of the same portfolio, side by side: `linux-src/` is the GTK4 + C desktop app, `web-src/` is the HTML/CSS/JS site. Neither depends on or replaces the other. The pieces under `linux-src/` marked *(planned)* below are what the GTK app still needs — its build system and sources go in incrementally.
 
 ```
 my-portfolio/
@@ -16,7 +16,7 @@ my-portfolio/
 │       └── hardware-compat.md      # Standalone writeup for the Hardware-Compat project
 ├── Public/
 │   └── Images/                     # Public-facing copies of site images
-├── linux-src/                      # The GTK4 + C rewrite
+├── linux-src/                      # The GTK4 + C desktop app
 │   ├── README.md                   # Points back here — this doc is the source of truth
 │   ├── main.c                      # (planned) Entry point — GtkApplication setup and activation
 │   ├── app-window.c / .h           # (planned) Main GtkApplicationWindow: header bar, sidebar nav, content stack
@@ -33,7 +33,7 @@ my-portfolio/
 │       ├── style.css               # GTK CSS for the whole app (see theming.md)
 │       ├── portfolio.gresource.xml # GResource manifest bundling style.css + icons into the binary
 │       └── icons/                  # App icon + any symbolic icons
-└── web-src/                        # The original static HTML/CSS/JS prototype, kept for reference
+└── web-src/                        # The static HTML/CSS/JS site
     ├── README.md                   # Points back here — this doc is the source of truth
     ├── Index.html, about.html, ed_skills.html, hardware-compat.html,
     │   internships.html, projects.html, contacts.html
@@ -57,6 +57,6 @@ Each page is one `GtkWidget` subtree built by its own file under `linux-src/page
 | About | `linux-src/pages/about.c` | Background, journey, and interests |
 | Contact | `linux-src/pages/contact.c` | GitHub, LinkedIn, and email links |
 
-Because every page shares one `GtkApplicationWindow` and one sidebar built in `nav.c`, adding or renaming a page means registering it once in `nav.c` rather than editing a `<nav>` block in every file — one of the things that's simpler than the `web-src/` version it replaces.
+Because every page shares one `GtkApplicationWindow` and one sidebar built in `nav.c`, adding or renaming a page means registering it once in `nav.c` rather than editing a `<nav>` block in every file, which is how `web-src/`'s pages handle navigation.
 
-`linux-src/resources/` holds everything bundled into the binary via [`GResource`](https://docs.gtk.org/gio/class.Resource.html) — the CSS, and icons. `Public/` still mirrors assets intended for external reference (e.g. for this README on GitHub) outside of the compiled app. `web-src/` holds the previous static site purely for reference while the rewrite is in progress; it is not part of the `linux-src/` build.
+`linux-src/resources/` holds everything bundled into the binary via [`GResource`](https://docs.gtk.org/gio/class.Resource.html) — the CSS, and icons. `Public/` mirrors assets intended for external reference (e.g. for this README on GitHub) outside of either build. `web-src/` is a complete, independent build of the site on its own; it is not part of the `linux-src/` build and isn't affected by changes there.

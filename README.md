@@ -2,9 +2,9 @@
 
 A personal portfolio application for **Rajkumar**, a B.E. Computer Science Engineering student and full-stack developer.
 
-The project is moving from a static HTML/CSS/JS site to a **native Linux desktop app written in C, using GTK4 for the UI and GTK's CSS support for styling** — same content (home, education & skills, projects, internships, about, contact, light/dark theme), rebuilt as a real GTK application instead of a browser page. The existing HTML prototype lives on in [`web-src/`](web-src/) for reference while the GTK rewrite is built out under [`linux-src/`](linux-src/).
+The portfolio is built two ways: a static HTML/CSS/JS site in [`web-src/`](web-src/), and a **native Linux desktop app written in C, using GTK4 for the UI and GTK's CSS support for styling**, in [`linux-src/`](linux-src/). Same content (home, education & skills, projects, internships, about, contact, light/dark theme) — two separate builds.
 
-This README intentionally stays high-level. It does not explain the application's own C source — the point of rewriting this as a GTK app is to have real, readable GTK code to study, so the source is left to speak for itself. What *is* documented thoroughly, in [`docs/`](docs/), is everything about GTK and the build/dev environment you need to read that code comfortably: how to install GTK4 and the toolchain, how the project is laid out, how GTK CSS theming works, and where to go in the official GTK docs for anything not covered here.
+This README intentionally stays high-level. It does not explain the GTK app's own C source — the point of building it in GTK is to have real, readable GTK code to study, so the source is left to speak for itself. What *is* documented thoroughly, in [`docs/`](docs/), is everything about GTK and the build/dev environment you need to read that code comfortably: how to install GTK4 and the toolchain, how the project is laid out, how GTK CSS theming works, and where to go in the official GTK docs for anything not covered here.
 
 ## Quick start
 
@@ -24,7 +24,7 @@ See [docs/getting-started.md](docs/getting-started.md) for per-distro dependency
 Further documentation lives in [`docs/`](docs/), starting at [`docs/README.md`](docs/README.md):
 
 - [Getting started](docs/getting-started.md) — installing GTK4 + the toolchain, building, running, and using the GTK Inspector to study the app live.
-- [Application structure](docs/site-structure.md) — how the GTK app's sources, resources, and the legacy HTML prototype are organized.
+- [Application structure](docs/site-structure.md) — how the GTK app's sources and resources, and the HTML site, are organized.
 - [Theming](docs/theming.md) — how GTK CSS and the light/dark toggle work, with pointers into the official GTK CSS reference.
 - [Customization](docs/customization.md) — editing nav items, colors, and contact info without needing to read the whole codebase first.
 - [Project writeups](docs/project-writeups/) — standalone writeups for individual projects featured in the app.
