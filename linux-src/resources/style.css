@@ -16,12 +16,59 @@
 @define-color accent_contrast_color #ffffff;
 @define-color accent_soft_color #e9edff;
 
+/* `color` and `font-family` are inherited properties in GTK CSS, same as
+ * the web. Setting them once here is what makes every label fall back to
+ * our palette/typeface instead of whatever the active system GTK theme
+ * (Adwaita, Yaru, a dark variant, ...) would otherwise supply — without
+ * this, only the labels below that set an explicit `color` matched the
+ * site; headings and titles silently took the theme's text color instead
+ * of @text_color. */
 window.portfolio-window {
+  background-color: @window_bg_color;
+  color: @text_color;
+  font-family: Inter, -apple-system, "Segoe UI", sans-serif;
+}
+
+/* GtkScrolledWindow wraps its child in an internal viewport; both default
+ * to the theme's base/view color (usually pure white), which showed as a
+ * visible seam against @window_bg_color. Match it explicitly. */
+scrolledwindow,
+scrolledwindow > viewport,
+.portfolio-scroller {
   background-color: @window_bg_color;
 }
 
-.portfolio-scroller {
-  background-color: @window_bg_color;
+/* ---------------- Native widget chrome reset ----------------
+   Adwaita (and most system themes) paint buttons and frames with their
+   own gradients/box-shadows/outlines. Flatten those so our own
+   background/border/radius are what actually shows, matching the flat
+   web design instead of the native widget look. */
+
+button {
+  background-image: none;
+  box-shadow: none;
+  text-shadow: none;
+  outline: none;
+  min-height: 0;
+  min-width: 0;
+}
+
+frame {
+  background-image: none;
+  box-shadow: none;
+  border-style: solid;
+}
+
+linkbutton,
+linkbutton > label {
+  background: none;
+  background-image: none;
+  box-shadow: none;
+  border: none;
+  outline: none;
+  padding: 0;
+  min-height: 0;
+  min-width: 0;
 }
 
 /* ---------------- Hero ---------------- */
@@ -130,9 +177,16 @@ window.portfolio-window {
 
 /* ---------------- Feature cards ---------------- */
 
-.feature-grid {
-  /* column/row sizing handled in C (portfolio-home-page.c); this just
-     styles each card once it's placed. */
+/* web-src's .feature-grid is an unequal 1.4fr/1fr bento layout (one wide
+ * card, two stacked narrow ones) — GtkGrid has no fractional-track sizing,
+ * so the C side builds this as two unevenly-weighted columns instead; see
+ * .feature-col-wide / .feature-col-narrow below. */
+.feature-col-wide {
+  min-width: 320px;
+}
+
+.feature-col-narrow {
+  min-width: 220px;
 }
 
 .feature-card {

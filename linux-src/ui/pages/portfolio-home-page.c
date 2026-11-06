@@ -113,7 +113,11 @@ build_featured_work_section (void)
 {
   GtkWidget *section = gtk_box_new (GTK_ORIENTATION_VERTICAL, 0);
   GtkWidget *heading = gtk_label_new ("Featured work");
-  GtkWidget *grid = gtk_grid_new ();
+  /* web-src's .feature-grid is an unequal 1.4fr/1fr bento layout; GtkGrid
+   * has no fractional-track sizing, so this is two unevenly-weighted
+   * columns instead — see .feature-col-wide/.feature-col-narrow. */
+  GtkWidget *columns = gtk_box_new (GTK_ORIENTATION_HORIZONTAL, 16);
+  GtkWidget *narrow_col = gtk_box_new (GTK_ORIENTATION_VERTICAL, 16);
   GtkWidget *hardware_compat;
   GtkWidget *scam_detect;
   GtkWidget *task_tracker;
@@ -124,35 +128,36 @@ build_featured_work_section (void)
   gtk_widget_set_halign (heading, GTK_ALIGN_START);
   gtk_box_append (GTK_BOX (section), heading);
 
-  gtk_widget_add_css_class (grid, "feature-grid");
-  gtk_grid_set_row_spacing (GTK_GRID (grid), 16);
-  gtk_grid_set_column_spacing (GTK_GRID (grid), 16);
-  gtk_grid_set_column_homogeneous (GTK_GRID (grid), TRUE);
-
   hardware_compat = portfolio_feature_card_new (
       "Hardware-Compat",
       "A Linux hardware compatibility checker that scans PCI/USB devices, driver "
       "status, SMART disk health and battery condition, then recommends exact "
       "fix commands — no third-party Python packages required.",
       "Read the writeup →", "https://github.com/rajkumart5897/My-Portfolio");
+  gtk_widget_add_css_class (hardware_compat, "feature-col-wide");
+  gtk_widget_set_hexpand (hardware_compat, TRUE);
   gtk_widget_set_vexpand (hardware_compat, TRUE);
-  gtk_grid_attach (GTK_GRID (grid), hardware_compat, 0, 0, 1, 2);
+  gtk_box_append (GTK_BOX (columns), hardware_compat);
+
+  gtk_widget_add_css_class (narrow_col, "feature-col-narrow");
+  gtk_widget_set_hexpand (narrow_col, TRUE);
 
   scam_detect = portfolio_feature_card_new (
       "ScamDetect",
       "A full-stack ML system that detects fraudulent job postings in real time "
       "with a 5-model ensemble classifier and a rule-based fraud engine.",
       "View on GitHub →", "https://github.com/rajkumart5897/Scam-Detector");
-  gtk_grid_attach (GTK_GRID (grid), scam_detect, 1, 0, 1, 1);
+  gtk_box_append (GTK_BOX (narrow_col), scam_detect);
 
   task_tracker = portfolio_feature_card_new (
       "Personal Task Tracker",
       "A self-hosted, multi-user task tracker with a Flask + SQLite backend and "
       "a vanilla-JS frontend, built with real attention to backend security.",
       "View on GitHub →", "https://github.com/rajkumart5897/Personal-Task-Tracker");
-  gtk_grid_attach (GTK_GRID (grid), task_tracker, 1, 1, 1, 1);
+  gtk_box_append (GTK_BOX (narrow_col), task_tracker);
 
-  gtk_box_append (GTK_BOX (section), grid);
+  gtk_box_append (GTK_BOX (columns), narrow_col);
+  gtk_box_append (GTK_BOX (section), columns);
 
   return section;
 }
