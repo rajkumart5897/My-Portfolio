@@ -48,7 +48,7 @@ ninja -C build
 ## 3. Run
 
 ```bash
-./build/src/my-portfolio
+./build/linux-src/my-portfolio
 ```
 
 ## 4. Study it with the GTK Inspector
@@ -56,7 +56,7 @@ ninja -C build
 GTK ships a built-in live inspector — this is the fastest way to connect what you're reading in the source to what's actually on screen: click a widget in the inspector and it highlights the matching C object, browse the live CSS node tree, and edit CSS on the fly without recompiling.
 
 ```bash
-GTK_DEBUG=interactive ./build/src/my-portfolio
+GTK_DEBUG=interactive ./build/linux-src/my-portfolio
 ```
 
 or trigger it from any running GTK app with <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>I</kbd> (or <kbd>Ctrl</kbd>+<kbd>Shift</kbd>+<kbd>D</kbd> for a detached window). Reference: [GTK Inspector docs](https://docs.gtk.org/gtk4/visual_index.html#debugging) and `man gtk4-launch`.
@@ -84,4 +84,15 @@ See [site-structure.md](site-structure.md) for how the app's sources and resourc
 
 ## Deployment note
 
-The app is a native binary, not something you host as static files — the old "point a static host at `src/`" deployment path no longer applies. `ninja -C build install` (with an appropriate `--prefix` set at `meson setup` time) installs it like any other Meson/GTK project; packaging as a Flatpak is the usual way to distribute a GTK app to end users, see [docs.flatpak.org](https://docs.flatpak.org/) if that's a direction you want to take it.
+The app is a native binary, not something you host as static files — the old "point a static host at `web-src/`" deployment path no longer applies. `ninja -C build install` (with an appropriate `--prefix` set at `meson setup` time) installs it like any other Meson/GTK project; packaging as a Flatpak is the usual way to distribute a GTK app to end users, see [docs.flatpak.org](https://docs.flatpak.org/) if that's a direction you want to take it.
+
+## Running the legacy web prototype
+
+The original static site is kept in [`web-src/`](../web-src/) and still runs on its own, with no GTK dependencies:
+
+```bash
+cd web-src
+python3 -m http.server 8000
+```
+
+Then visit `http://localhost:8000/Index.html`. It isn't part of the GTK build and won't be touched further as `linux-src/` takes over.

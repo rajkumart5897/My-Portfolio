@@ -60,7 +60,7 @@ The light/dark toggle in this app (`theme.c`) doesn't swap stylesheets — it fl
 The single most useful tool for understanding how a given rule in `style.css` maps onto the running app is the **GTK Inspector** (see [getting-started.md](getting-started.md)):
 
 ```bash
-GTK_DEBUG=interactive ./build/src/my-portfolio
+GTK_DEBUG=interactive ./build/linux-src/my-portfolio
 ```
 
 Select any widget on screen and the inspector shows its full CSS node path and every matching rule with specificity — including rules from the active system theme, not just this app's stylesheet. You can edit CSS directly in the inspector and see it apply instantly, without recompiling.
