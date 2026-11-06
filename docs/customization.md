@@ -5,7 +5,7 @@ Common tweaks you can make without reading through the whole codebase first — 
 ## GTK app (`linux-src/`)
 
 - **Colors & theme tokens** — edit the `@define-color` declarations at the top of `linux-src/resources/style.css`. The GTK Inspector (`GTK_DEBUG=interactive`, see [getting-started.md](getting-started.md)) lets you try color changes live before editing the file.
-- **Navigation items** — the sidebar is built from one list in `linux-src/nav.c`; add, remove, or reorder pages there and the corresponding `GtkStack` page in `linux-src/app-window.c` picks it up.
+- **Navigation items** — the sidebar is built from one list (`NAV_ITEMS`) in `linux-src/nav.c`; add, remove, or reorder pages there, and register the matching named child in the `GtkStack` built in `linux-src/core/portfolio-window.c`.
 - **Contact details** — `linux-src/pages/contact.c` has placeholder strings for LinkedIn and email that should be filled in with real values.
 - **Resume** — the "Download resume" action should point at a `Rajkumar_resume.pdf` bundled via `linux-src/resources/portfolio.gresource.xml` (or opened from a fixed path on disk).
 - **App ID / window title** — set once in `linux-src/main.c` where the `GtkApplication` is constructed.

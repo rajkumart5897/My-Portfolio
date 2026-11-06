@@ -1,6 +1,6 @@
 /* ---------------------------------------------------------
    My Portfolio — GTK app stylesheet
-   Stage 1: home page only, one fixed (light) palette.
+   Stage 2: sidebar nav + six pages, one fixed (light) palette.
    Color tokens mirror web-src/styles.css's :root values —
    GTK CSS has no custom properties, so @define-color stands
    in for the CSS variables there. See docs/theming.md.
@@ -218,4 +218,149 @@ linkbutton > label {
 
 .about-teaser {
   color: @text_muted_color;
+}
+
+/* ---------------- Sidebar nav ----------------
+   Mirrors web-src's <nav class="site-nav"> one-for-one in content (same
+   six links, same order), but as a left sidebar rather than a top bar --
+   the conventional layout for a GTK desktop app's primary navigation
+   (see docs/customization.md). */
+
+.portfolio-nav {
+  min-width: 200px;
+  background-color: @surface_color;
+  border-right: 1px solid @border_color;
+  padding: 18px 0;
+}
+
+.nav-separator {
+  min-width: 1px;
+  background-color: @border_color;
+}
+
+.nav-brand {
+  padding: 0 18px 18px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid @border_color;
+}
+
+.nav-brand-mark {
+  background-color: @accent_color;
+  color: @accent_contrast_color;
+  font-weight: 700;
+  font-size: 0.8rem;
+  padding: 4px 7px;
+  border-radius: 6px;
+}
+
+.nav-brand-name {
+  font-weight: 700;
+}
+
+.nav-list {
+  background: none;
+}
+
+.nav-row {
+  padding: 10px 18px;
+}
+
+.nav-row-label {
+  color: @text_muted_color;
+}
+
+.nav-row:hover {
+  background-color: @surface_alt_color;
+}
+
+.nav-row:selected,
+.nav-row:selected:hover {
+  background-color: @accent_soft_color;
+}
+
+.nav-row:selected .nav-row-label {
+  color: @accent_color;
+  font-weight: 600;
+}
+
+/* ---------------- Education & Skills ---------------- */
+
+.skills-table-heading {
+  color: @text_muted_color;
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.02em;
+}
+
+.skill-category {
+  font-weight: 600;
+}
+
+.skills-table-institution {
+  color: @text_muted_color;
+}
+
+.skills-table-item {
+  color: @text_muted_color;
+  font-size: 0.95rem;
+}
+
+/* ---------------- Internships empty state ---------------- */
+
+.empty-state {
+  border: 1px dashed @border_color;
+  border-radius: 10px;
+  padding: 24px;
+  margin-top: 8px;
+}
+
+.empty-state-heading {
+  font-weight: 700;
+  margin-bottom: 6px;
+}
+
+.empty-state-body {
+  color: @text_muted_color;
+}
+
+/* ---------------- About ---------------- */
+
+.about-heading {
+  font-size: 1.7rem;
+  font-weight: 700;
+}
+
+.timeline-item {
+  color: @text_color;
+  padding: 4px 0;
+}
+
+.tag-pill {
+  background-color: @accent_soft_color;
+  color: @accent_color;
+  font-size: 0.9rem;
+  font-weight: 600;
+  padding: 6px 12px;
+  border-radius: 999px;
+}
+
+/* ---------------- Contact ---------------- */
+
+.contact-list {
+  margin-top: 4px;
+}
+
+.contact-row {
+  padding: 10px 0;
+}
+
+.contact-row-icon {
+  background-color: @surface_alt_color;
+  border: 1px solid @border_color;
+  border-radius: 6px;
+  min-width: 28px;
+  min-height: 28px;
+  font-family: monospace;
+  font-size: 0.8rem;
 }

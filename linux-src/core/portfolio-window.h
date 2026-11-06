@@ -8,9 +8,9 @@ G_BEGIN_DECLS
 G_DECLARE_FINAL_TYPE (PortfolioWindow, portfolio_window, PORTFOLIO, WINDOW, GtkApplicationWindow)
 
 /* The composition root: the one module that knows about every page and
- * widget module and wires them together. Stage 1 hosts the home page
- * directly; Stage 2 adds a sidebar + GtkStack here without the page
- * modules needing to change. */
+ * widget module and wires them together. Stage 2: a sidebar (nav.c) +
+ * GtkStack, switched by the nav's "page-selected" signal. The page
+ * modules themselves didn't need to change from Stage 1. */
 
 GtkWidget *portfolio_window_new (GtkApplication *application);
 
