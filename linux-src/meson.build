@@ -12,6 +12,7 @@ portfolio_resources = gnome.compile_resources(
 portfolio_sources = files(
   'main.c',
   'nav.c',
+  'theme.c',
   'core/portfolio-application.c',
   'core/portfolio-window.c',
   'ui/pages/portfolio-home-page.c',

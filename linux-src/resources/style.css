@@ -283,6 +283,22 @@ linkbutton > label {
   font-weight: 600;
 }
 
+/* Mirrors web-src's .theme-toggle button (the ◐ pill next to the nav
+ * links) -- sits below the page list instead of beside the brand, since
+ * this sidebar has no horizontal row to put it in. */
+.theme-toggle {
+  margin: 6px 18px 0;
+  padding: 6px 10px;
+  border-radius: 999px;
+  border: 1px solid @border_color;
+  background-color: @surface_color;
+  color: @text_muted_color;
+}
+
+.theme-toggle:hover {
+  background-color: @surface_alt_color;
+}
+
 /* ---------------- Education & Skills ---------------- */
 
 .skills-table-heading {

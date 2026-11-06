@@ -1,10 +1,12 @@
 #include "nav.h"
+#include "theme.h"
 
 struct _PortfolioNav
 {
   GtkBox parent_instance;
 
   GtkWidget *list;
+  GtkWidget *theme_toggle;
 };
 
 G_DEFINE_FINAL_TYPE (PortfolioNav, portfolio_nav, GTK_TYPE_BOX)
@@ -50,6 +52,19 @@ on_row_selected (GtkListBox    *list,
 
   page_name = g_object_get_data (G_OBJECT (row), "portfolio-nav-page-name");
   g_signal_emit (self, signals[SIGNAL_PAGE_SELECTED], 0, page_name);
+}
+
+static void
+on_theme_toggle_clicked (GtkButton *button,
+                          gpointer   user_data)
+{
+  GtkWidget *label = gtk_button_get_child (button);
+
+  (void) user_data;
+
+  portfolio_theme_toggle ();
+  gtk_label_set_text (GTK_LABEL (label),
+                       portfolio_theme_is_dark () ? "\u25D1 Dark" : "\u25D0 Light");
 }
 
 static void
@@ -119,6 +134,17 @@ portfolio_nav_init (PortfolioNav *self)
   g_signal_connect (self->list, "row-selected", G_CALLBACK (on_row_selected), self);
 
   gtk_box_append (GTK_BOX (self), self->list);
+
+  /* Mirrors web-src's <button class="theme-toggle"> -- toggles the
+   * light/dark CSS provider in theme.c. Label reflects the preference
+   * already loaded by portfolio_theme_init() before the window exists. */
+  self->theme_toggle = gtk_button_new_with_label (
+      portfolio_theme_is_dark () ? "\u25D1 Dark" : "\u25D0 Light");
+  gtk_widget_add_css_class (self->theme_toggle, "theme-toggle");
+  gtk_widget_set_halign (self->theme_toggle, GTK_ALIGN_START);
+  g_signal_connect (self->theme_toggle, "clicked",
+                     G_CALLBACK (on_theme_toggle_clicked), self);
+  gtk_box_append (GTK_BOX (self), self->theme_toggle);
 }
 
 GtkWidget *

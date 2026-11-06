@@ -1,0 +1,22 @@
+/* ---------------------------------------------------------
+   My Portfolio — GTK app dark palette.
+
+   Loaded as a SECOND GtkCssProvider, at a priority above
+   style.css, only while dark mode is active (see theme.c).
+   Because every rule in style.css reads colors through the
+   named @define-color tokens below rather than literal hex
+   values, re-declaring just these nine names here is enough
+   to re-skin the whole app -- nothing else needs to change.
+   Values mirror web-src/styles.css's :root[data-theme="dark"]
+   block 1:1. See docs/theming.md.
+--------------------------------------------------------- */
+
+@define-color window_bg_color #0d0f13;
+@define-color surface_color #15171d;
+@define-color surface_alt_color #1b1e26;
+@define-color border_color #272b35;
+@define-color text_color #ecedef;
+@define-color text_muted_color #9aa0ac;
+@define-color accent_color #7c9bff;
+@define-color accent_contrast_color #0d0f13;
+@define-color accent_soft_color #1c2440;
